@@ -28,6 +28,10 @@ nav .brand {font:700 1.45rem Georgia,serif}
 .kicker {font-size:.875rem;font-weight:800;letter-spacing:.12em;margin:0 0 12px}
 h1,h2,h3,p {margin-top:0}
 h1 {font:800 clamp(3.2rem,8vw,7rem)/1.12 "Songti TC","Noto Serif TC","PMingLiU",serif;letter-spacing:.04em;margin:0 0 19px}
+.hero-education {max-width:37rem;margin:0 0 24px;padding:13px 17px;border-left:4px solid var(--gold);background:#a22920;border-radius:0 8px 8px 0}
+.hero-education h2 {margin:0 0 5px;font-size:clamp(1.05rem,2.25vw,1.35rem)}
+.hero-education p {margin:0;font-size:.95rem}
+.hero-education strong {color:var(--gold)}
 .intro {max-width:37rem;margin-bottom:25px}
 .button {display:inline-block;background:var(--gold);color:var(--ink);border:2px solid var(--ink);border-radius:100px;text-decoration:none;padding:9px 20px;font-weight:800;box-shadow:3px 4px var(--ink)}
 .button:hover {background:var(--white)}
@@ -93,7 +97,6 @@ h3 {font-size:1.28rem;line-height:1.4;margin-bottom:10px}
 .t-stem ol {display:grid;gap:8px}
 .t-stem li {padding:9px 2px;border-top:1px solid #a9759b;font-weight:780}
 .t-stem li:last-child {font-size:clamp(1.05rem,2.4vw,1.35rem)}
-.education h3 {margin-top:18px}
 .about {padding-top:0}
 .about-box {border-top:1px solid var(--line);padding-top:30px}
 .about-box p {max-width:65ch}
@@ -123,14 +126,18 @@ footer p {margin-bottom:18px}
 <body>
 <nav aria-label="網站導覽"><div class="wrap">
 <a class="brand" href="#">翁婕語</a>
-<div class="navlinks"><a href="#experience">經驗</a><a href="#research">研究</a><a href="#skills">學歷與技能</a><a href="#contact">聯絡</a></div>
+<div class="navlinks"><a href="#experience">經驗</a><a href="#research">研究</a><a href="#education">學歷</a><a href="#skills">技能</a><a href="#contact">聯絡</a></div>
 </div></nav>
 <main>
 <header class="hero"><div class="wrap">
 <div>
 <p class="kicker">MARKETING &amp; BUSINESS ANALYTICS</p>
 <h1>翁婕語</h1>
-<p class="intro">你好，叫我婕語就好。我是臺北醫學大學醫務管理學系三年級生。我喜歡從顧客的反應找線索，再把觀察變成可以執行的促銷企劃、內容或分析。</p>
+<p class="intro">你好，叫我婕語就好。我喜歡從顧客的反應找線索，再把觀察變成可以執行的促銷企劃、內容或分析。</p>
+<div class="hero-education" id="education">
+<h2>臺北醫學大學｜醫務管理學系三年級</h2>
+<p><strong>修畢課程</strong>　醫療行銷、生物統計學、管理學、經濟學、人力資源管理、基礎程式設計</p>
+</div>
 <a class="button" href="#experience">看我的實務經驗</a>
 </div>
 <figure class="portrait">
@@ -176,13 +183,14 @@ footer p {margin-bottom:18px}
 <div class="research-copy">
 <p class="kicker">專題研究 · 進行中</p>
 <h2>醫院服務品質與患者回饋</h2>
-<p>我想了解患者在公開評論中反映了哪些就醫體驗，以及這些回饋能為醫院服務改善提供哪些線索。</p>
+<p>剛進醫管系時，我還不確定未來想走哪個方向。修了管理、統計和商業分析相關課程後，我發現自己很想知道，從數據中能看出哪些問題，以及這些問題反映了人們的哪些需求。</p>
+<p>這份好奇心讓我開始研究醫院 Google 評論，想了解不同評分的患者各自關心哪些服務品質問題。從發想題目、找資料到規劃分析，也讓我更確定自己對數據分析、消費者行為和數位行銷的興趣。</p>
 <p>我從<strong>蒐集與整理公開評論</strong>著手，把文字回饋依服務議題分類。接下來，我會<strong>比較各類議題的分布，並用圖表呈現</strong>，讓讀者更容易看出哪些問題反覆出現。</p>
 </div>
 <figure class="capability-map">
 <svg viewBox="0 0 480 330" role="img" aria-labelledby="research-map-title research-map-desc">
 <title id="research-map-title">專題研究主要運用的能力</title>
-<desc id="research-map-desc">資料蒐集、資料整理、文字分類、數據分析、資料視覺化、結果解讀。</desc>
+<desc id="research-map-desc">資料蒐集、資料整理、文字分類、數據分析、資料視覺化、結果判讀。</desc>
 <polygon points="240,48 349,111 349,219 240,282 131,219 131,111" fill="#69345c" stroke="#ffbf36" stroke-width="3"/>
 <path d="M240 48V282 M131 111L349 219 M131 219L349 111" stroke="#e2a8bc" stroke-width="2"/>
 <polygon points="240,91 306,129 306,201 240,239 174,201 174,129" fill="#ffbf36"/>
@@ -197,7 +205,7 @@ footer p {margin-bottom:18px}
 <text x="408" y="246">文字分類</text>
 <text x="240" y="318">數據分析</text>
 <text x="66" y="246">資料視覺化</text>
-<text x="66" y="98">結果解讀</text>
+<text x="66" y="98">結果判讀</text>
 </g>
 </svg>
 </figure>
@@ -213,9 +221,8 @@ footer p {margin-bottom:18px}
 </figure>
 </div></section>
 <section class="education"><div class="wrap">
-<div><h2>學歷與技能</h2><p>臺北醫學大學<br>醫務管理學系 · 三年級</p></div>
-<div><h3>相關修課</h3><p>醫療行銷、生物統計學、管理學、經濟學、人力資源管理、基礎程式設計</p>
-<h3>工具與語言</h3><p>Excel（樞紐分析表）、Canva、Word、PowerPoint<br>TOEIC 850 · JLPT N3 160／180</p></div>
+<div><h2>工具與語言</h2></div>
+<div><p>Excel（樞紐分析表）、Canva、Word、PowerPoint<br>TOEIC 850 · JLPT N3 160／180</p></div>
 </div></section>
 <section class="about"><div class="wrap about-box"><h2>關於我</h2><p>在北醫修醫療行銷和統計學時，我發現自己很喜歡研究人們為什麼做出某個選擇。打工經歷讓我能把想法放進真實的促銷活動。我期待在行銷實習中繼續磨練。課外我喜歡健身、爬山和自己做便當。</p></div></section>
 </main>
