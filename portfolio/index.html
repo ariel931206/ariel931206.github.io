@@ -100,11 +100,11 @@ h3 {font-size:1.28rem;line-height:1.4;margin-bottom:10px}
 .t-stem li:last-child {font-size:clamp(1.05rem,2.4vw,1.35rem)}
 .about {padding-top:0}
 .about-box {border-top:1px solid var(--line);padding-top:30px}
-.about-box {display:grid;grid-template-columns:minmax(0,1fr) minmax(180px,300px);gap:clamp(20px,5vw,65px);align-items:center}
-.about-photo {margin:0;padding:8px;background:var(--white);border:1px solid var(--line);border-radius:8px;box-shadow:5px 5px var(--gold)}
-.about-album {width:min(100%,330px);justify-self:center;padding:10px 10px 16px;isolation:isolate}
-.about-photo-hike {width:70%;transform:rotate(-6deg)}
-.about-photo-meal {position:relative;width:73%;margin:-22% 0 0 auto;transform:rotate(5deg)}
+.about-box {display:grid;grid-template-columns:minmax(0,.82fr) minmax(0,1.18fr);gap:clamp(20px,5vw,65px);align-items:center}
+.about-photo {margin:0}
+.about-album {width:min(100%,570px);justify-self:center;padding:10px 14px 18px;isolation:isolate}
+.about-photo-hike {width:74%;transform:rotate(-4deg)}
+.about-photo-meal {position:relative;width:78%;margin:-24% 0 0 auto;transform:rotate(4deg)}
 .about-photo img {display:block;width:100%;height:auto;border-radius:4px}
 @media(max-width:690px) {
   .about-box {grid-template-columns:1fr}
@@ -151,8 +151,8 @@ footer p {margin-bottom:18px}
 }
 @media(prefers-reduced-motion:reduce) {html {scroll-behavior:auto}}
 @media(prefers-reduced-motion:no-preference) {
-  .fade-ready {transition:opacity .55s ease}
-  .fade-ready.fade-pending:not(:focus-within):not(:target) {opacity:0}
+  .fade-ready {transition:opacity 1.15s cubic-bezier(.22,.61,.36,1),transform 1.15s cubic-bezier(.22,.61,.36,1),filter 1.05s ease-out}
+  .fade-ready.fade-pending:not(:focus-within):not(:target) {opacity:0;transform:translateY(28px);filter:blur(9px)}
 }
 </style>
 </head>
@@ -289,7 +289,7 @@ if ('IntersectionObserver' in window && matchMedia('(prefers-reduced-motion: no-
         observer.unobserve(entry.target);
       }
     }
-  });
+  }, {rootMargin:'0px 0px -6% 0px'});
   document.querySelectorAll('.hero .wrap, .results .wrap, main > section > .wrap, footer > .wrap').forEach((section) => {
     section.classList.add('fade-ready', 'fade-pending');
     observer.observe(section);
