@@ -13,7 +13,6 @@
   --plum:#522648; --line:#d8b7a5; --white:#fffaf0;
 }
 * {box-sizing:border-box}
-html {scroll-behavior:smooth}
 body {margin:0;background:var(--paper);color:var(--ink);font:1rem/1.75 "PingFang TC","Noto Sans TC","Microsoft JhengHei",system-ui,sans-serif}
 a {color:inherit}
 a:focus-visible {outline:3px solid currentColor;outline-offset:5px}
@@ -151,7 +150,6 @@ footer p {margin-bottom:18px}
   .t-cross ul {gap:5px}
   section {padding-block:40px}
 }
-@media(prefers-reduced-motion:reduce) {html {scroll-behavior:auto}}
 </style>
 </head>
 <body>
@@ -287,14 +285,13 @@ footer p {margin-bottom:18px}
 </main>
 <footer id="contact"><div class="wrap"><h2>聯絡我</h2><p>想多了解我的經歷，或是聊聊實習的可能，都可以寫信給我。謝謝你看到這裡！</p><a class="button" href="mailto:ariel931206@gmail.com">寄信給婕語</a></div></footer>
 <script>
-const motion = matchMedia('(prefers-reduced-motion: reduce)');
 const track = document.querySelector('.album-track');
 const pages = document.querySelector('.album-pages');
 const buttons = [...pages.querySelectorAll('button')];
 pages.hidden = false;
 buttons.forEach((button, index) => {
   button.addEventListener('click', () => {
-    track.scrollTo({left: index * track.clientWidth, behavior: motion.matches ? 'instant' : 'smooth'});
+    track.scrollTo({left: index * track.clientWidth, behavior: 'instant'});
   });
 });
 track.addEventListener('scroll', () => {
@@ -302,24 +299,6 @@ track.addEventListener('scroll', () => {
   buttons.forEach((button, index) => button.setAttribute('aria-current', String(index === page)));
 }, {passive:true});
 
-if ('IntersectionObserver' in window && 'animate' in Element.prototype) {
-  const animations = new WeakMap();
-  const observer = new IntersectionObserver((entries) => {
-    for (const entry of entries) {
-      const section = entry.target;
-      animations.get(section)?.cancel();
-      if (!entry.isIntersecting || motion.matches) continue;
-      animations.set(section, section.animate([
-        {transform:'translateY(14px)'},
-        {transform:'translateY(-3px)', offset:.68},
-        {transform:'translateY(0)'}
-      ], {duration:420, easing:'ease-out'}));
-    }
-  }, {rootMargin:'-3% 0px -3% 0px'});
-  document.querySelectorAll('.hero .wrap, .results .metric, .timeline > li, main > section:not(#experience) > .wrap, footer > .wrap').forEach((section) => {
-    observer.observe(section);
-  });
-}
 </script>
 </body>
 </html>
