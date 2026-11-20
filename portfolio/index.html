@@ -52,7 +52,18 @@ h1 {font:700 clamp(3.3rem,8vw,7.5rem)/.95 Georgia,serif;letter-spacing:-.07em;ma
 section {padding-block:62px}
 h2 {font-size:clamp(1.85rem,4.5vw,3.1rem);line-height:1.25;margin-bottom:25px}
 h3 {font-size:1.28rem;line-height:1.4;margin-bottom:10px}
-.cards {display:grid;grid-template-columns:repeat(2,1fr);gap:16px}
+.timeline {--rail:12.5rem;list-style:none;position:relative;display:grid;gap:18px;padding:0;margin:0}
+.timeline::before {content:"";position:absolute;top:21px;bottom:0;left:var(--rail);width:3px;background:linear-gradient(var(--red),#dc8a52,var(--plum))}
+.timeline > li {display:grid;grid-template-columns:var(--rail) minmax(0,1fr);gap:26px;align-items:start;position:relative}
+.timeline > li::before {content:"";position:absolute;left:var(--rail);top:22px;width:16px;height:16px;border:3px solid var(--paper);border-radius:50%;background:var(--red);transform:translateX(-7px);box-shadow:0 0 0 1px var(--red)}
+.timeline .date {padding:15px 14px 0 0;line-height:1.35}
+.date b,.date span {display:block}
+.date b {font:700 1.55rem Georgia,serif;letter-spacing:-.035em}
+.date span {margin-top:5px;color:var(--plum)}
+.skill-tags {display:flex;gap:7px;flex-wrap:wrap;list-style:none;margin:14px 0 0;padding:0}
+.skill-tags li {padding:3px 10px;background:var(--paper);border-radius:2rem;color:var(--plum);font-size:.875rem;font-weight:750}
+.timeline > li:nth-child(even) .card {--accent:var(--plum)}
+.timeline > li:nth-child(even)::before {background:var(--plum);box-shadow:0 0 0 1px var(--plum)}
 .card {background:var(--white);border:1px solid var(--line);border-top:5px solid var(--accent,var(--red));border-radius:8px;padding:22px 25px}
 .card:nth-child(2n) {--accent:var(--plum)}
 .card p:last-child,.research p:last-child,.education p:last-child {margin-bottom:0}
@@ -60,13 +71,21 @@ h3 {font-size:1.28rem;line-height:1.4;margin-bottom:10px}
 .research {background:var(--plum);color:var(--white)}
 .research .kicker {color:var(--gold)}
 .research .wrap,.education .wrap {display:grid;grid-template-columns:1fr 1.25fr;gap:35px}
-.focus-map {display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px;margin:0 0 24px;padding:0;list-style:none}
-.focus-map li {padding:15px 10px;border:1px solid var(--line);border-top:6px solid var(--red);border-radius:8px;background:var(--white)}
-.focus-map li:nth-child(2) {border-top-color:var(--gold)}
-.focus-map li:nth-child(3) {border-top-color:var(--plum)}
-.focus-map strong,.focus-map span {display:block}
-.focus-map strong {font-size:1.22rem;line-height:1.25;margin-bottom:7px}
-.focus-map span {font-size:.875rem}
+.skill-section {padding-bottom:0}
+.skill-section .wrap {padding-top:38px;border-top:1px solid var(--line)}
+.skill-section h2 {margin-bottom:9px}
+.skill-section .wrap > p {margin-bottom:23px}
+.t-map {max-width:850px;margin:0 auto}
+.t-cross {padding:18px;background:var(--red);color:var(--white);border-radius:10px 10px 0 0;box-shadow:5px 5px var(--ink)}
+.t-caption {margin:0 0 12px;font-weight:800;font-size:.9rem;letter-spacing:.08em}
+.t-map ul,.t-map ol {list-style:none;margin:0;padding:0}
+.t-cross ul {display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px}
+.t-cross li {padding:11px 5px;text-align:center;background:var(--gold);color:var(--ink);font-size:clamp(.92rem,2.5vw,1.55rem);font-weight:850;line-height:1.25;border-radius:4px}
+.t-stem {width:min(62%,370px);margin-inline:auto;padding:19px 14px 21px;background:var(--plum);color:var(--white);border-radius:0 0 10px 10px;box-shadow:5px 5px var(--ink);text-align:center}
+.t-stem .t-caption {color:var(--gold)}
+.t-stem ol {display:grid;gap:8px}
+.t-stem li {padding:9px 2px;border-top:1px solid #a9759b;font-weight:780}
+.t-stem li:last-child {font-size:clamp(1.05rem,2.4vw,1.35rem)}
 .education h3 {margin-top:18px}
 .about {padding-top:0}
 .about-box {border-top:1px solid var(--line);padding-top:30px}
@@ -78,10 +97,17 @@ footer p {margin-bottom:18px}
   .wrap {width:calc(100% - 36px)}
   .hero .wrap {grid-template-columns:1fr;gap:33px;padding-block:39px 45px}
   .portrait {width:min(56%,210px)}
-  .cards,.research .wrap,.education .wrap {grid-template-columns:1fr;gap:12px}
+  .research .wrap,.education .wrap {grid-template-columns:1fr;gap:12px}
   .metrics {grid-template-columns:1fr;gap:14px}
   .metric + .metric {padding:14px 0 0;border-left:0;border-top:1px solid #805726}
-  .focus-map {grid-template-columns:repeat(auto-fit,minmax(min(100%,7.5rem),1fr))}
+  .timeline {--rail:8px;gap:22px}
+  .timeline > li {display:block;padding-left:30px}
+  .timeline .date {padding:2px 0 8px}
+  .timeline > li::before {top:10px}
+  .timeline::before {top:10px}
+  .card {padding:16px}
+  .t-cross {padding:12px}
+  .t-cross ul {gap:5px}
   section {padding-block:40px}
 }
 @media(prefers-reduced-motion:reduce) {html {scroll-behavior:auto}}
@@ -116,25 +142,47 @@ footer p {margin-bottom:18px}
 <div class="metric"><dt>10+ 份</dt><dd>藥局保健品推廣文宣</dd><dd class="metric-note">用 Canva 製作</dd></div>
 </dl></div>
 <section id="experience"><div class="wrap">
-<h2>實務經驗</h2>
-<div class="cards">
-<article class="card"><p class="date">2025.03–2025.10</p><h3>藥局｜商品促銷與營運</h3><p>依商品特性與顧客需求規劃優惠，用 Canva 製作保健品文宣。以 Excel 維護進貨、銷售與庫存紀錄，並使用<strong>樞紐分析表觀察購買趨勢</strong>。</p></article>
-<article class="card"><p class="date">2024.12–2025.01</p><h3>義大利餐廳｜節慶企劃與口碑</h3><p>參與農曆新年菜單與活動企劃，<strong>設計兩款限定飲料</strong>和滿額抽獎。協助蒐集顧客回饋、追蹤 Google 商家評論，活動當日營收較以往節日多約 3 萬元。</p></article>
-<article class="card"><p class="date">2025.12–2026.06</p><h3>私人家教｜客製化教學</h3><p>定期檢視學習成果並調整策略，協助一名小三學生在半年內把英文成績從低於 60 分提升至 <strong>70 分以上</strong>。</p></article>
-<article class="card"><p class="date">2023.07–2023.08</p><h3>暑期營隊｜活動執行</h3><p>規劃並執行<strong>營隊活動</strong>，與約 10 位隊輔合作，協助約 20 位 7 至 15 歲學員完成為期一個月的課程。</p></article>
-</div>
+<h2>工作經歷時間線</h2>
+<ol class="timeline">
+<li>
+<p class="date"><b><time datetime="2025-12">2025.12</time></b><span>至 <time datetime="2026-06">2026.06</time></span></p>
+<article class="card"><h3>私人家教｜客製化教學</h3><p>定期檢視學習成果並調整策略，協助一名小三學生在半年內把英文成績從低於 60 分提升至 <strong>70 分以上</strong>。</p>
+<ul class="skill-tags" aria-label="應用技能"><li>需求分析</li><li>學習成果追蹤</li><li>客製化教學</li></ul></article>
+</li>
+<li>
+<p class="date"><b><time datetime="2025-03">2025.03</time></b><span>至 <time datetime="2025-10">2025.10</time></span></p>
+<article class="card"><h3>藥局｜商品促銷與營運</h3><p>依商品特性與顧客需求規劃優惠，以 Canva 製作保健品文宣。使用 Excel 維護進貨、銷售與庫存紀錄，透過<strong>樞紐分析表觀察購買趨勢</strong>。</p>
+<ul class="skill-tags" aria-label="應用技能"><li>促銷規劃</li><li>Canva</li><li>Excel 樞紐分析表</li></ul></article>
+</li>
+<li>
+<p class="date"><b><time datetime="2024-12">2024.12</time></b><span>至 <time datetime="2025-01">2025.01</time></span></p>
+<article class="card"><h3>義大利餐廳｜節慶企劃與口碑</h3><p>參與農曆新年菜單與活動企劃，<strong>設計兩款限定飲料</strong>和滿額抽獎，並協助蒐集回饋、追蹤 Google 商家評論。</p>
+<ul class="skill-tags" aria-label="應用技能"><li>節慶企劃</li><li>顧客回饋</li><li>Google 商家評論</li></ul></article>
+</li>
+<li>
+<p class="date"><b><time datetime="2023-07">2023.07</time></b><span>至 <time datetime="2023-08">2023.08</time></span></p>
+<article class="card"><h3>暑期營隊｜活動執行</h3><p>規劃並執行營隊活動，與約 10 位隊輔合作，協助<strong>約 20 位學員</strong>完成為期一個月的課程。</p>
+<ul class="skill-tags" aria-label="應用技能"><li>活動規劃</li><li>現場執行</li><li>團隊協作</li></ul></article>
+</li>
+</ol>
 </div></section>
 <section class="research" id="research"><div class="wrap">
 <div><p class="kicker">專題研究 · 進行中</p><h2>醫院服務品質與患者回饋</h2></div>
 <div><p>我想了解患者在公開評論中如何描述就醫體驗，以及這些回饋能為醫院服務改善提供哪些線索。</p></div>
 </div></section>
-<section class="education" id="skills"><div class="wrap">
+<section class="skill-section" id="skills"><div class="wrap">
+<h2>T 型能力發展</h2>
+<p>以醫務管理與統計為基礎，把分析能力延伸到顧客理解與行銷決策。</p>
+<figure class="t-map" aria-label="T 型能力圖">
+<div class="t-cross"><p class="t-caption">跨領域拓展</p>
+<ul><li>消費者洞察</li><li>商業分析</li><li>行銷策略</li></ul></div>
+<div class="t-stem"><p class="t-caption">持續深化</p>
+<ol><li>統計分析</li><li>資料探勘</li><li>醫務管理與統計基礎</li></ol></div>
+</figure>
+</div></section>
+<section class="education"><div class="wrap">
 <div><h2>學歷與技能</h2><p>臺北醫學大學<br>醫務管理學系 · 三年級</p></div>
-<div><ul class="focus-map" aria-label="專業方向與實務應用">
-<li><strong>顧客洞察</strong><span>整理顧客回饋</span></li>
-<li><strong>行銷企劃</strong><span>設計促銷與文宣</span></li>
-<li><strong>商業分析</strong><span>觀察銷售趨勢</span></li>
-</ul><h3>相關修課</h3><p>醫療行銷、生物統計學、管理學、經濟學、人力資源管理、基礎程式設計</p>
+<div><h3>相關修課</h3><p>醫療行銷、生物統計學、管理學、經濟學、人力資源管理、基礎程式設計</p>
 <h3>工具與語言</h3><p>Excel（樞紐分析表）、Canva、Word、PowerPoint<br>TOEIC 850 · JLPT N3 160／180</p></div>
 </div></section>
 <section class="about"><div class="wrap about-box"><h2>關於我</h2><p>在北醫修醫療行銷和統計學時，我發現自己很喜歡研究人們為什麼做出某個選擇。餐廳和藥局讓我有機會把想法放進真實的促銷活動，我也期待在行銷實習中繼續磨練。課外我喜歡健身、爬山，也常自己做便當。</p></div></section>
