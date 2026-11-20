@@ -70,6 +70,14 @@ h3 {font-size:1.28rem;line-height:1.4;margin-bottom:10px}
 .research {background:var(--plum);color:var(--white)}
 .research .kicker {color:var(--gold)}
 .research .wrap,.education .wrap {display:grid;grid-template-columns:1fr 1.25fr;gap:35px}
+.research .wrap {align-items:center}
+.research-copy {max-width:34rem}
+.research-copy strong {color:var(--gold)}
+.capability-map {margin:0 auto;width:min(100%,31rem)}
+.capability-map svg {display:block;width:100%;height:auto}
+.capability-map text {font-family:system-ui,sans-serif;font-weight:800;text-anchor:middle}
+.capability-map .skill-label {fill:var(--white);font-size:23px}
+.capability-map .center-label {fill:var(--ink);font-size:25px}
 .skill-section {padding-bottom:0}
 .skill-section .wrap {padding-top:38px;border-top:1px solid var(--line)}
 .skill-section h2 {margin-bottom:9px}
@@ -165,8 +173,34 @@ footer p {margin-bottom:18px}
 </ol>
 </div></section>
 <section class="research" id="research"><div class="wrap">
-<div><p class="kicker">專題研究 · 進行中</p><h2>醫院服務品質與患者回饋</h2></div>
-<div><p>我想了解患者在公開評論中如何描述就醫體驗，以及這些回饋能為醫院服務改善提供哪些線索。</p></div>
+<div class="research-copy">
+<p class="kicker">專題研究 · 進行中</p>
+<h2>醫院服務品質與患者回饋</h2>
+<p>我想了解患者在公開評論中反映了哪些就醫體驗，以及這些回饋能為醫院服務改善提供哪些線索。</p>
+<p>我從<strong>蒐集與整理公開評論</strong>著手，把文字回饋依服務議題分類。接下來，我會<strong>比較各類議題的分布，並用圖表呈現</strong>，讓讀者更容易看出哪些問題反覆出現。</p>
+</div>
+<figure class="capability-map">
+<svg viewBox="0 0 480 330" role="img" aria-labelledby="research-map-title research-map-desc">
+<title id="research-map-title">專題研究主要運用的能力</title>
+<desc id="research-map-desc">資料蒐集、資料整理、文字分類、數據分析、資料視覺化、結果解讀。</desc>
+<polygon points="240,48 349,111 349,219 240,282 131,219 131,111" fill="#69345c" stroke="#ffbf36" stroke-width="3"/>
+<path d="M240 48V282 M131 111L349 219 M131 219L349 111" stroke="#e2a8bc" stroke-width="2"/>
+<polygon points="240,91 306,129 306,201 240,239 174,201 174,129" fill="#ffbf36"/>
+<g fill="#ffbf36">
+<circle cx="240" cy="48" r="6"/><circle cx="349" cy="111" r="6"/><circle cx="349" cy="219" r="6"/>
+<circle cx="240" cy="282" r="6"/><circle cx="131" cy="219" r="6"/><circle cx="131" cy="111" r="6"/>
+</g>
+<text class="center-label" x="240" y="159">主要運用<tspan x="240" dy="30">的能力</tspan></text>
+<g class="skill-label">
+<text x="240" y="28">資料蒐集</text>
+<text x="408" y="98">資料整理</text>
+<text x="408" y="246">文字分類</text>
+<text x="240" y="318">數據分析</text>
+<text x="66" y="246">資料視覺化</text>
+<text x="66" y="98">結果解讀</text>
+</g>
+</svg>
+</figure>
 </div></section>
 <section class="skill-section" id="skills"><div class="wrap">
 <h2>T 型能力發展</h2>
@@ -185,6 +219,6 @@ footer p {margin-bottom:18px}
 </div></section>
 <section class="about"><div class="wrap about-box"><h2>關於我</h2><p>在北醫修醫療行銷和統計學時，我發現自己很喜歡研究人們為什麼做出某個選擇。餐廳和藥局讓我有機會把想法放進真實的促銷活動，我也期待在行銷實習中繼續磨練。課外我喜歡健身、爬山和自己做便當。</p></div></section>
 </main>
-<footer id="contact"><div class="wrap"><h2>聯絡我</h2><p>歡迎交流行銷、顧客洞察與商業分析的實習機會。</p><a class="button" href="mailto:ariel931206@gmail.com">寄信給婕語</a></div></footer>
+<footer id="contact"><div class="wrap"><h2>聯絡我</h2><p>想多了解我的經歷，或是聊聊實習的可能，都可以寫信給我。謝謝你看到這裡！</p><a class="button" href="mailto:ariel931206@gmail.com">寄信給婕語</a></div></footer>
 </body>
 </html>
