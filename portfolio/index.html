@@ -32,6 +32,7 @@ h1 {font:800 clamp(3.2rem,8vw,7rem)/1.12 "Songti TC","Noto Serif TC","PMingLiU",
 .hero-education h2 {margin:0 0 5px;font-size:clamp(1.05rem,2.25vw,1.35rem)}
 .hero-education p {margin:0;font-size:.95rem}
 .hero-education strong {color:var(--gold)}
+.course {display:inline-block;white-space:nowrap}
 .intro {max-width:37rem;margin-bottom:25px}
 .button {display:inline-block;background:var(--gold);color:var(--ink);border:2px solid var(--ink);border-radius:100px;text-decoration:none;padding:9px 20px;font-weight:800;box-shadow:3px 4px var(--ink)}
 .button:hover {background:var(--white)}
@@ -69,11 +70,11 @@ h3 {font-size:1.28rem;line-height:1.4;margin-bottom:10px}
 .timeline > li:nth-child(even)::before {background:var(--plum);box-shadow:0 0 0 1px var(--plum)}
 .card {background:var(--white);border:1px solid var(--line);border-top:5px solid var(--accent,var(--red));border-radius:8px;padding:22px 25px}
 .card:nth-child(2n) {--accent:var(--plum)}
-.card p:last-child,.research p:last-child,.education p:last-child {margin-bottom:0}
+.card p:last-child,.research p:last-child {margin-bottom:0}
 .date {font-size:.875rem;font-weight:750;margin-bottom:7px}
 .research {background:var(--plum);color:var(--white)}
 .research .kicker {color:var(--gold)}
-.research .wrap,.education .wrap {display:grid;grid-template-columns:1fr 1.25fr;gap:35px}
+.research .wrap {display:grid;grid-template-columns:1fr 1.25fr;gap:35px}
 .research .wrap {align-items:center}
 .research-copy {max-width:34rem}
 .research-copy strong {color:var(--gold)}
@@ -103,11 +104,30 @@ h3 {font-size:1.28rem;line-height:1.4;margin-bottom:10px}
 footer {background:var(--ink);color:var(--white);padding-block:40px}
 footer h2 {margin-bottom:10px}
 footer p {margin-bottom:18px}
+
+.credentials {display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}
+.credentials-card {padding:clamp(17px,4vw,28px);border-radius:10px;background:var(--gold);color:var(--ink)}
+.credentials-card:nth-child(2) {background:var(--plum);color:var(--white)}
+.credentials-card h3 {font-size:1.2rem;margin-bottom:3px}
+.credential-score {font:700 clamp(2.7rem,7vw,4.7rem)/1.05 Georgia,serif;margin-bottom:8px}
+.credential-score small {font:700 1.1rem/1.4 system-ui,sans-serif}
+.learning-path {display:flex;flex-wrap:wrap;gap:6px 10px;padding:0;margin:14px 0 0;list-style:none;font-weight:800}
+.learning-path li + li::before {content:"→";display:inline-block;margin-right:10px}
+.score-track {height:10px;background:#86577c;border-radius:10px;overflow:hidden;margin-top:18px}
+.score-track span {display:block;height:100%;width:85.8586%;background:var(--gold)}
+.tool-grid {display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:10px;list-style:none;margin:0;padding:0}
+.tool-grid li {padding:14px;border:1px solid var(--line);border-top:5px solid var(--red);border-radius:8px;background:var(--white)}
+.tool-grid strong,.tool-grid span {display:block}
+.tool-grid strong {font-size:clamp(1.12rem,2.7vw,1.55rem);line-height:1.3;overflow-wrap:anywhere}
+.tool-grid span {margin-top:5px;font-size:.95rem}
+.tools-heading {margin-top:27px;font-size:1.4rem}
 @media(max-width:690px) {
+  .credentials {grid-template-columns:1fr}
+  .tool-grid {grid-template-columns:repeat(2,minmax(0,1fr))}
   .wrap {width:calc(100% - 36px)}
   .hero .wrap {grid-template-columns:1fr;gap:33px;padding-block:39px 45px}
   .portrait {width:min(56%,210px)}
-  .research .wrap,.education .wrap {grid-template-columns:1fr;gap:12px}
+  .research .wrap {grid-template-columns:1fr;gap:12px}
   .metrics {grid-template-columns:1fr;gap:14px}
   .metric + .metric {padding:14px 0 0;border-left:0;border-top:1px solid #805726}
   .timeline {--rail:8px;gap:22px}
@@ -136,7 +156,7 @@ footer p {margin-bottom:18px}
 <p class="intro">你好，叫我婕語就好！我擅長整理資料和分析數據，也喜歡從數字裡找線索，看看消費者真正需要什麼。語言也是我持續在練習的領域，目前已通過日檢 N3，多益拿到 850 分。</p>
 <div class="hero-education" id="education">
 <h2>臺北醫學大學｜醫務管理學系三年級</h2>
-<p><strong>修畢課程</strong>　醫療行銷、生物統計學、管理學、經濟學、人力資源管理、基礎程式設計</p>
+<p><strong>修畢課程</strong>　醫療行銷、生物統計學、管理學、經濟學、人力資源管理、<span class="course">基礎程式設計</span></p>
 </div>
 <a class="button" href="#experience">看我的實務經驗</a>
 </div>
@@ -185,7 +205,7 @@ footer p {margin-bottom:18px}
 <h2>醫院服務品質與患者回饋</h2>
 <p>剛進醫管系時，我還不確定未來想走哪個方向。修了管理、統計和商業分析相關課程後，我發現自己很想知道，從數據中能看出哪些問題，以及這些問題反映了人們的哪些需求。</p>
 <p>這份好奇心讓我開始研究醫院 Google 評論，想了解不同評分的患者各自關心哪些服務品質問題。從發想題目、找資料到規劃分析，也讓我更確定自己對數據分析、消費者行為和數位行銷的興趣。</p>
-<p>我從<strong>蒐集與整理公開評論</strong>著手，把文字回饋依服務議題分類。接下來，我會<strong>比較各類議題的分布，並用圖表呈現</strong>，讓讀者更容易看出哪些問題反覆出現。</p>
+<p><strong>專題仍在進行中，敬請期待後續成果。</strong></p>
 </div>
 <figure class="capability-map">
 <svg viewBox="0 0 480 330" role="img" aria-labelledby="research-map-title research-map-desc">
@@ -220,9 +240,27 @@ footer p {margin-bottom:18px}
 <ol><li>統計分析</li><li>資料探勘</li><li>醫務管理與統計基礎</li></ol></div>
 </figure>
 </div></section>
-<section class="education"><div class="wrap">
-<div><h2>工具與語言</h2></div>
-<div><p>Excel（樞紐分析表）、Canva、Word、PowerPoint<br>TOEIC 850 · JLPT N3 160／180</p></div>
+<section aria-labelledby="credentials-heading"><div class="wrap">
+<h2 id="credentials-heading">工具與語言</h2>
+<div class="credentials">
+<article class="credentials-card">
+<h3>日文 · JLPT</h3>
+<p class="credential-score">N3 <small>160／180 分</small></p>
+<ol class="learning-path" aria-label="日語自學歷程"><li>零基礎</li><li>自學半年</li><li>通過 N3</li></ol>
+</article>
+<article class="credentials-card">
+<h3>英文 · TOEIC</h3>
+<p class="credential-score">850 <small>／990 分</small></p>
+<div class="score-track" aria-hidden="true"><span></span></div>
+</article>
+</div>
+<h3 class="tools-heading">常用工具</h3>
+<ul class="tool-grid">
+<li><strong>Excel</strong><span>資料整理與樞紐分析</span></li>
+<li><strong>Canva</strong><span>促銷文宣設計</span></li>
+<li><strong>Word</strong><span>文件編排</span></li>
+<li><strong>PowerPoint</strong><span>簡報製作</span></li>
+</ul>
 </div></section>
 <section class="about"><div class="wrap about-box"><h2>關於我</h2><p>在北醫修醫療行銷和統計學時，我發現自己很喜歡研究人們為什麼做出某個選擇。打工經歷讓我能把想法放進真實的促銷活動。我期待在行銷實習中繼續磨練。課外我喜歡健身、爬山和自己做便當。</p></div></section>
 </main>
