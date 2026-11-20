@@ -38,9 +38,17 @@ h1 {font:700 clamp(3.3rem,8vw,7.5rem)/.95 Georgia,serif;letter-spacing:-.07em;ma
 .portrait figcaption {font:italic 1rem/1.4 Georgia,serif;text-align:center;margin-top:8px}
 .results {background:var(--gold)}
 .metrics {display:grid;grid-template-columns:repeat(3,1fr);margin-block:0;padding-block:23px;gap:20px}
-.metrics div + div {border-left:1px solid #805726;padding-left:24px}
+.metric + .metric {border-left:1px solid #805726;padding-left:24px}
 .metrics dt {font:700 clamp(1.55rem,3.4vw,2.65rem)/1.2 Georgia,"PingFang TC",serif;margin-bottom:6px}
 .metrics dd {margin:0;font-size:.9rem;font-weight:700}
+.metrics dt {font-size:clamp(2.15rem,5vw,4rem);letter-spacing:-.045em}
+.metrics dd + dd {margin-top:12px}
+.rating-line {display:grid;grid-template-columns:2.25rem 1fr;align-items:center;gap:8px;max-width:250px}
+.rating-line + .rating-line {margin-top:5px}
+.rating-track {height:8px;background:#f0a529;border-radius:99px;overflow:hidden}
+.rating-track b {display:block;height:100%;width:var(--rating);background:var(--plum);border-radius:inherit}
+.metric-note {color:#552933}
+.card strong {color:var(--red);font-size:1.12em}
 section {padding-block:62px}
 h2 {font-size:clamp(1.85rem,4.5vw,3.1rem);line-height:1.25;margin-bottom:25px}
 h3 {font-size:1.28rem;line-height:1.4;margin-bottom:10px}
@@ -52,8 +60,13 @@ h3 {font-size:1.28rem;line-height:1.4;margin-bottom:10px}
 .research {background:var(--plum);color:var(--white)}
 .research .kicker {color:var(--gold)}
 .research .wrap,.education .wrap {display:grid;grid-template-columns:1fr 1.25fr;gap:35px}
-.stage {margin:0;padding-left:1.3em}
-.stage li + li {margin-top:6px}
+.focus-map {display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px;margin:0 0 24px;padding:0;list-style:none}
+.focus-map li {padding:15px 10px;border:1px solid var(--line);border-top:6px solid var(--red);border-radius:8px;background:var(--white)}
+.focus-map li:nth-child(2) {border-top-color:var(--gold)}
+.focus-map li:nth-child(3) {border-top-color:var(--plum)}
+.focus-map strong,.focus-map span {display:block}
+.focus-map strong {font-size:1.22rem;line-height:1.25;margin-bottom:7px}
+.focus-map span {font-size:.875rem}
 .education h3 {margin-top:18px}
 .about {padding-top:0}
 .about-box {border-top:1px solid var(--line);padding-top:30px}
@@ -66,8 +79,9 @@ footer p {margin-bottom:18px}
   .hero .wrap {grid-template-columns:1fr;gap:33px;padding-block:39px 45px}
   .portrait {width:min(56%,210px)}
   .cards,.research .wrap,.education .wrap {grid-template-columns:1fr;gap:12px}
-  .metrics {gap:9px}
-  .metrics div + div {padding-left:9px}
+  .metrics {grid-template-columns:1fr;gap:14px}
+  .metric + .metric {padding:14px 0 0;border-left:0;border-top:1px solid #805726}
+  .focus-map {grid-template-columns:repeat(auto-fit,minmax(min(100%,7.5rem),1fr))}
   section {padding-block:40px}
 }
 @media(prefers-reduced-motion:reduce) {html {scroll-behavior:auto}}
@@ -93,27 +107,34 @@ footer p {margin-bottom:18px}
 </figure>
 </div></header>
 <div class="results"><dl class="wrap metrics" aria-label="實務成果">
-<div><dt>3.8 到 4.3</dt><dd>餐廳活動期間平均星等</dd></div>
-<div><dt>破 10 萬</dt><dd>餐廳節慶活動當日營收</dd></div>
-<div><dt>10+ 份</dt><dd>藥局保健品推廣文宣</dd></div>
+<div class="metric"><dt>3.8 → 4.3</dt><dd>餐廳活動期間平均星等（滿分 5 星）</dd>
+<dd aria-hidden="true">
+<span class="rating-line"><span>3.8</span><span class="rating-track"><b style="--rating:76%"></b></span></span>
+<span class="rating-line"><span>4.3</span><span class="rating-track"><b style="--rating:86%"></b></span></span>
+</dd></div>
+<div class="metric"><dt>破 10 萬</dt><dd>餐廳節慶活動當日營收</dd><dd class="metric-note">較以往節日多約 3 萬元</dd></div>
+<div class="metric"><dt>10+ 份</dt><dd>藥局保健品推廣文宣</dd><dd class="metric-note">用 Canva 製作</dd></div>
 </dl></div>
 <section id="experience"><div class="wrap">
 <h2>實務經驗</h2>
 <div class="cards">
-<article class="card"><p class="date">2025.03–2025.10</p><h3>藥局｜商品促銷與營運</h3><p>依商品特性與顧客需求規劃優惠，用 Canva 製作保健品文宣。以 Excel 維護進貨、銷售與庫存紀錄，並使用樞紐分析表觀察購買趨勢。</p></article>
-<article class="card"><p class="date">2024.12–2025.01</p><h3>義大利餐廳｜節慶企劃與口碑</h3><p>參與農曆新年菜單與活動企劃，設計兩款限定飲料和滿額抽獎。協助蒐集顧客回饋、追蹤 Google 商家評論，活動當日營收較以往節日多約 3 萬元。</p></article>
-<article class="card"><p class="date">2025.12–2026.06</p><h3>私人家教｜客製化教學</h3><p>定期檢視學習成果並調整策略，協助一名小三學生在半年內把英文成績從低於 60 分提升至 70 分以上。</p></article>
-<article class="card"><p class="date">2023.07–2023.08</p><h3>暑期營隊｜活動執行</h3><p>規劃並執行營隊活動，與約 10 位隊輔合作，協助約 20 位 7 至 15 歲學員完成為期一個月的課程。</p></article>
+<article class="card"><p class="date">2025.03–2025.10</p><h3>藥局｜商品促銷與營運</h3><p>依商品特性與顧客需求規劃優惠，用 Canva 製作保健品文宣。以 Excel 維護進貨、銷售與庫存紀錄，並使用<strong>樞紐分析表觀察購買趨勢</strong>。</p></article>
+<article class="card"><p class="date">2024.12–2025.01</p><h3>義大利餐廳｜節慶企劃與口碑</h3><p>參與農曆新年菜單與活動企劃，<strong>設計兩款限定飲料</strong>和滿額抽獎。協助蒐集顧客回饋、追蹤 Google 商家評論，活動當日營收較以往節日多約 3 萬元。</p></article>
+<article class="card"><p class="date">2025.12–2026.06</p><h3>私人家教｜客製化教學</h3><p>定期檢視學習成果並調整策略，協助一名小三學生在半年內把英文成績從低於 60 分提升至 <strong>70 分以上</strong>。</p></article>
+<article class="card"><p class="date">2023.07–2023.08</p><h3>暑期營隊｜活動執行</h3><p>規劃並執行<strong>營隊活動</strong>，與約 10 位隊輔合作，協助約 20 位 7 至 15 歲學員完成為期一個月的課程。</p></article>
 </div>
 </div></section>
 <section class="research" id="research"><div class="wrap">
-<div><p class="kicker">專題研究 · 進行中</p><h2>低星評論能否反映醫院的主要服務抱怨？</h2></div>
-<div><p>以醫院 Google 評論為研究對象，探討只看低星評論時，會漏掉哪些服務問題，以及主要抱怨的排序是否改變。</p>
-<ol class="stage"><li>參考臺灣醫療服務相關指標，建立抱怨分類。</li><li>規劃以關鍵字分類，再抽樣人工驗證。</li><li>規劃以卡方檢定比較各星等的抱怨分布，並檢視類別排序。</li></ol></div>
+<div><p class="kicker">專題研究 · 進行中</p><h2>醫院服務品質與患者回饋</h2></div>
+<div><p>我想了解患者在公開評論中如何描述就醫體驗，以及這些回饋能為醫院服務改善提供哪些線索。</p></div>
 </div></section>
 <section class="education" id="skills"><div class="wrap">
 <div><h2>學歷與技能</h2><p>臺北醫學大學<br>醫務管理學系 · 三年級</p></div>
-<div><h3>相關修課</h3><p>醫療行銷、生物統計學、管理學、經濟學、人力資源管理、基礎程式設計</p>
+<div><ul class="focus-map" aria-label="專業方向與實務應用">
+<li><strong>顧客洞察</strong><span>整理顧客回饋</span></li>
+<li><strong>行銷企劃</strong><span>設計促銷與文宣</span></li>
+<li><strong>商業分析</strong><span>觀察銷售趨勢</span></li>
+</ul><h3>相關修課</h3><p>醫療行銷、生物統計學、管理學、經濟學、人力資源管理、基礎程式設計</p>
 <h3>工具與語言</h3><p>Excel（樞紐分析表）、Canva、Word、PowerPoint<br>TOEIC 850 · JLPT N3 160／180</p></div>
 </div></section>
 <section class="about"><div class="wrap about-box"><h2>關於我</h2><p>在北醫修醫療行銷和統計學時，我發現自己很喜歡研究人們為什麼做出某個選擇。餐廳和藥局讓我有機會把想法放進真實的促銷活動，我也期待在行銷實習中繼續磨練。課外我喜歡健身、爬山，也常自己做便當。</p></div></section>
