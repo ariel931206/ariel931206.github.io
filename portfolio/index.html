@@ -147,12 +147,34 @@ footer p {margin-bottom:18px}
   .t-cross ul {gap:5px}
   section {padding-block:40px}
 }
+
+.project-grid {display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:20px}
+.project {display:flex;flex-direction:column;gap:16px}
+.project h3,.project dl,.project p,.project figure {margin:0}
+.project-meta {color:var(--plum);font-weight:750;font-size:.875rem}
+.project dl {display:grid;gap:8px}
+.project dl > div {display:grid;grid-template-columns:2.8em 1fr;gap:6px}
+.project dl dt {font-weight:800;color:var(--red)}
+.project dl dd {margin:0}
+.project-visual {padding:14px;background:var(--paper);border-radius:7px}
+.project-visual figcaption {font-weight:800;margin-bottom:8px}
+.project-stat {font:700 2rem Georgia,serif;color:var(--red)}
+.project-bars {list-style:none;padding:0;margin:0;display:grid;gap:8px}
+.project-bars span {display:flex;justify-content:space-between;gap:8px}
+.project-bars i {display:block;background:var(--plum);height:7px;width:var(--share);border-radius:9px}
+.project-prices {display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px}
+.project-prices > div {background:var(--white);padding:8px;border-radius:5px}
+.project-prices strong {display:block;font-size:1.22rem;color:var(--red)}
+.project-context {font-size:.875rem;color:var(--plum)}
+.project-models {list-style:none;margin:0;padding:0;display:grid;gap:4px}
+.project-models li {display:grid;grid-template-columns:5.5em 1fr;gap:8px}
+@media(max-width:850px) {.project-grid {grid-template-columns:1fr}}
 </style>
 </head>
 <body>
 <nav aria-label="網站導覽"><div class="wrap">
 <a class="brand" href="#">翁婕語</a>
-<div class="navlinks"><a href="#experience">經驗</a><a href="#research">研究</a><a href="#education">學歷</a><a href="#skills">技能</a><a href="#contact">聯絡</a></div>
+<div class="navlinks"><a href="#projects">作品</a><a href="#experience">經驗</a><a href="#research">研究</a><a href="#education">學歷</a><a href="#skills">技能</a><a href="#contact">聯絡</a></div>
 </div></nav>
 <main>
 <header class="hero"><div class="wrap">
@@ -179,6 +201,49 @@ footer p {margin-bottom:18px}
 <div class="metric"><dt>破 10 萬</dt><dd>餐廳節慶活動當日營收</dd><dd class="metric-note">較以往節日多約 3 萬元</dd></div>
 <div class="metric"><dt>10+ 份</dt><dd>藥局保健品推廣文宣</dd><dd class="metric-note">用 Canva 製作</dd></div>
 </dl></div>
+<section id="projects"><div class="wrap">
+<h2>精選專案作品</h2>
+<div class="project-grid">
+<article class="card project">
+<p class="project-meta">課堂小組專案 · 消費者洞察</p>
+<h3>大學生閱讀行為問卷分析</h3>
+<dl>
+<div><dt>問題</dt><dd>哪些因素阻礙大學生閱讀？紙本與數位載體各自有何吸引力？</dd></div>
+<div><dt>方法</dt><dd>透過線上問卷蒐集 127 份回答，以描述性統計比較選項比例，並歸納開放題回覆。</dd></div>
+<div><dt>洞察</dt><dd>時間排擠最常被選為閱讀阻礙。數位載體方便攜帶，紙本則在回覆中被提及有助於沉浸閱讀。</dd></div>
+</dl>
+<figure class="project-visual">
+<figcaption><span class="project-stat">127</span> 份問卷 · 主要閱讀阻礙</figcaption>
+<ul class="project-bars">
+<li><span>時間排擠 <b>76.4%</b></span><i style="--share:76.4%" aria-hidden="true"></i></li>
+<li><span>影音替代 <b>61.4%</b></span><i style="--share:61.4%" aria-hidden="true"></i></li>
+<li><span>專注力不足 <b>53.5%</b></span><i style="--share:53.5%" aria-hidden="true"></i></li>
+</ul>
+<p class="project-context">複選題 · 節錄前三項</p>
+</figure>
+<figure class="project-visual"><figcaption>載體選擇的取捨</figcaption>
+<div class="project-prices"><div><b>數位</b><p>攜帶方便，適合零碎時間。</p></div><div><b>紙本</b><p>部分受訪者認為更容易沉浸。</p></div></div>
+</figure>
+</article>
+<article class="card project">
+<p class="project-meta">課堂小組專案 · 行銷策略與競品定價</p>
+<h3>盛弘醫藥集團行銷策略研究</h3>
+<dl>
+<div><dt>問題</dt><dd>不同業務如何定價？同款商品在不同通路如何呈現價格？</dd></div>
+<div><dt>方法</dt><dd>小組以 STP 與 4P 整理行銷策略。我負責定價策略與競品價格拆解，比較躍獅與杏一的商品頁。</dd></div>
+<div><dt>洞察</dt><dd>兩家售價相同，杏一另標示劃線原價，形成折扣參照。競品比較可同時記錄售價、原價與回饋條件。</dd></div>
+</dl>
+<figure class="project-visual">
+<figcaption>同款安素 800g 的通路價格</figcaption>
+<div class="project-prices"><div>躍獅<strong>NT$860</strong></div><div>杏一 <del>NT$956</del><strong>NT$860</strong></div></div>
+<p class="project-context">課堂報告紀錄的商品頁標價</p>
+</figure>
+<figure class="project-visual"><figcaption>三種業務的定價模式</figcaption>
+<ul class="project-models"><li><b>醫藥流通</b><span>成本導向、規模經濟</span></li><li><b>藥局零售</b><span>市場行情、促銷定價</span></li><li><b>自費健檢</b><span>分級定價、市場區隔</span></li></ul>
+</figure>
+</article>
+</div>
+</div></section>
 <section id="experience"><div class="wrap">
 <h2>工作經歷時間線</h2>
 <ol class="timeline">
